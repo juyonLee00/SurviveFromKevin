@@ -27,7 +27,8 @@ public class SecondQuestionGame : MonoBehaviour
         if (!shuffling && CheckCompletion())
         {
             shuffling = true;
-            StartCoroutine(WaitShuffle(0.5f));
+            Shuffle();
+            shuffling = false;
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -114,14 +115,6 @@ public class SecondQuestionGame : MonoBehaviour
         }
         
         return true;
-    }
-
-
-    private IEnumerator WaitShuffle(float duration)
-    {
-        yield return new WaitForSeconds(duration);
-        Shuffle();
-        shuffling = false;
     }
 
     private void Shuffle()
