@@ -7,6 +7,7 @@ TagManager:
   - CinemachineTarget
   - bullet
   - Door
+  - Item
   layers:
   - Default
   - TransparentFX
