@@ -7,6 +7,7 @@ public class SecondQuestionGame : MonoBehaviour
     [SerializeField] private Transform gameTransform;
     [SerializeField] private Transform piecePrefab;
     [SerializeField] public Camera mainCamera;
+    [SerializeField] GameObject secondQuestionManager;
 
     private List<Transform> pieces;
     private int emptyLocation;
@@ -14,38 +15,47 @@ public class SecondQuestionGame : MonoBehaviour
     private bool shuffling = false;
     public bool isCorrect = true;
     private int correctCount = 0;
+    public bool isGameStarting = false;
 
-    void Start()
+
+    private void Start()
     {
         pieces = new List<Transform>();
         size = 3;
+        isGameStarting = true;
         CreateGamePieces(0.01f);
+        
     }
 
     void Update()
     {
-        if (!shuffling && CheckCompletion())
+        if (isGameStarting)
         {
-            shuffling = true;
-            Shuffle();
-            shuffling = false;
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            if (!shuffling && CheckCompletion())
             {
-                for (int i = 0; i < pieces.Count; i++)
+                shuffling = true;
+                Shuffle();
+                shuffling = false;
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit))
                 {
-                    if (pieces[i] == hit.transform)
-                    {
-                        if (SwapIfValid(i, -size, size)) { break; }
-                        if (SwapIfValid(i, +size, size)) { break; }
-                        if (SwapIfValid(i, -1, 0)) { break; }
-                        if (SwapIfValid(i, +1, size - 1)) { break; }
-                    }
+                        Debug.Log("clickrowlet");
+                        for (int i = 0; i < pieces.Count; i++)
+                        {
+                            if (pieces[i] == hit.transform)
+                            {
+                                if (SwapIfValid(i, -size, size)) { break; }
+                                if (SwapIfValid(i, +size, size)) { break; }
+                                if (SwapIfValid(i, -1, 0)) { break; }
+                                if (SwapIfValid(i, +1, size - 1)) { break; }
+                            }
+                        }
+                   
                 }
             }
         }
@@ -109,11 +119,13 @@ public class SecondQuestionGame : MonoBehaviour
         }
         correctCount += 1;
 
-        if(!isCorrect && correctCount >= 2)
+        if(!isCorrect && correctCount >= 1)
         {
             isCorrect = true;
+            secondQuestionManager.SetActive(false);
         }
-        
+        isGameStarting = false;
+
         return true;
     }
 
