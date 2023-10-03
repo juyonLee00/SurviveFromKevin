@@ -111,7 +111,7 @@ public class GameIntroManager : MonoBehaviour
         // background
         while (o.color.a > 0.0f)
         {
-            o.color = new Color(o.color.r, o.color.g, o.color.b, o.color.a - (Time.deltaTime / t));
+            o.color = new Color(o.color.r, o.color.g, o.color.b, o.color.a - (Time.deltaTime / 3.0f));
             yield return null;
         }
 
