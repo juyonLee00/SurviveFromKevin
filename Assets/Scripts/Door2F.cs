@@ -17,8 +17,6 @@ public class Door2F : MonoBehaviour
 
     void Update()
     {
-        Quaternion targetRotation = Quaternion.Euler(0, doorOpenAngle, 0);
-        transform.rotation = Quaternion.Slerp(transform.localRotation, targetRotation, smooth * Time.deltaTime);
         if (isDoorOpen)
         {
             DoorAction(doorOpenAngle);

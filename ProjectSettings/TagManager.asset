@@ -9,6 +9,8 @@ TagManager:
   - InteractionZone
   - CinemachineTarget
   - Obstacle
+  - Monitor
+  - Question2Prefab
   layers:
   - Default
   - TransparentFX

@@ -40,7 +40,7 @@ public class Keypad : MonoBehaviour
 
     private string currentInput;
     private bool displayingResult = false;
-    private bool accessWasGranted = false;
+    public bool accessWasGranted = false;
 
     private void Awake()
     {

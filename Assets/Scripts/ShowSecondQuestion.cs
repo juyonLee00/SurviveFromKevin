@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class ShowSecondQuestion : MonoBehaviour
 {
-    [SerializeField] GameObject secondQuestionImage;
-
     [SerializeField] public Camera getCamera;
+    [SerializeField] GameObject secondQuestionManager;
+    private string interactableTag = "Monitor";
 
     private RaycastHit hit;
-
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Ray ray = getCamera.ScreenPointToRay(Input.mousePosition);
 
@@ -20,7 +19,14 @@ public class ShowSecondQuestion : MonoBehaviour
             {
                 string objectName = hit.collider.gameObject.name;
                 Debug.Log(objectName);
-                secondQuestionImage.SetActive(true);
+
+                if (hit.collider.CompareTag(interactableTag))
+                {
+                    Debug.Log("GameStart");
+                    SecondQuestionGame secondQuestionGame = secondQuestionManager.GetComponent<SecondQuestionGame>();
+                    secondQuestionGame.isGameStarting = false;
+                    secondQuestionManager.SetActive(true);
+                }
             }
         }
         
