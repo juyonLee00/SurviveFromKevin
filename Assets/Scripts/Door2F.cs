@@ -5,7 +5,7 @@ using UnityEngine;
 public class Door2F : MonoBehaviour
 {
     bool isDoorOpen = false;
-    float doorOpenAngle = 45f;
+    float doorOpenAngle = 50f;
     float doorCloseAngle = 0f;
     float smooth = 2f;
 
@@ -17,7 +17,7 @@ public class Door2F : MonoBehaviour
 
     void Update()
     {
-        if(isDoorOpen)
+        if (isDoorOpen)
         {
             DoorAction(doorOpenAngle);
         }
