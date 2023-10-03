@@ -29,15 +29,5 @@ public class SceneChange : MonoBehaviour
 
         SceneManager.LoadScene(2);
     }
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.tag == "Test")
-    //    {
-    //        Debug.Log(other.gameObject);
-    //        Renderer render = GetComponent<Renderer>();
 
-    //        m_oldColor = render.material.color;
-    //        render.material.color = Color.green;
-    //    }
-    //}
 }
