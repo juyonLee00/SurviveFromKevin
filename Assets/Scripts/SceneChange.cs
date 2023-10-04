@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class SceneChange : MonoBehaviour
 {
-
+    [SerializeField] Canvas canvas = null;
+    [SerializeField] CanvasGroup background = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,17 +20,30 @@ public class SceneChange : MonoBehaviour
     {
         
     }
-    private Color m_oldColor = Color.white;
-
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
-        Renderer render = GetComponent<Renderer>();
-
-        m_oldColor = render.material.color;
-        render.material.color = Color.green;
-
+        canvas.gameObject.SetActive(true);
         SceneManager.LoadScene(2);
+        //StartCoroutine(nameof(AppearIntro),background);
     }
 
+    //public  IEnumerator AppearIntro(CanvasGroup o)
+    //{
+    //    // canvas
+    //    //canvas.gameObject.SetActive(true);
+
+    //    // background
+    //    //while (o.alpha > 0.6)
+    //    //{
+    //    //    Debug.Log(o.alpha);
+    //    //    o.alpha -= 0.02f * Time.deltaTime;
+    //    //    yield return null;
+
+    //    //}
+
+
+    //    // background
+
+    //    SceneManager.LoadScene(2);
+    //}
 }
