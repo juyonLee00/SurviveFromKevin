@@ -18,6 +18,5 @@ public class Obstacle : MonoBehaviour
     {
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.buildIndex);
-        Debug.Log("아 왜 안되는건데 ㅅㅂ");
     }
 }
