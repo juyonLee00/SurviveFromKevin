@@ -23,7 +23,7 @@ public class SceneChange : MonoBehaviour
     {
        
         //SceneManager.LoadScene("Scene_2F");
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
         //StartCoroutine(nameof(AppearIntro),background);
     }
 
