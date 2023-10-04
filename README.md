@@ -29,6 +29,7 @@
 
 ### 3) 커밋 규칙
 - commit message 규칙
+```
 commit 제목:
 [type] 작업한 내용 요약 (-작성자명)
 commit message 내용:
@@ -37,6 +38,7 @@ commit message 내용:
 각 파일에 대한 수정한 내용 설명
 (-작성자명)
 (이슈 사용할 경우 이슈번호 붙이기)
+```
 
 <br/>
 <br/>
