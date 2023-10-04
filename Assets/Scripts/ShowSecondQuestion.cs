@@ -6,6 +6,7 @@ public class ShowSecondQuestion : MonoBehaviour
 {
     [SerializeField] public Camera getCamera;
     [SerializeField] GameObject secondQuestionManager;
+    [SerializeField] GameObject gameBoard;
     private string interactableTag = "Monitor";
 
     private RaycastHit hit;
@@ -22,9 +23,7 @@ public class ShowSecondQuestion : MonoBehaviour
 
                 if (hit.collider.CompareTag(interactableTag))
                 {
-                    Debug.Log("GameStart");
                     SecondQuestionGame secondQuestionGame = secondQuestionManager.GetComponent<SecondQuestionGame>();
-                    secondQuestionGame.isGameStarting = false;
                     secondQuestionManager.SetActive(true);
                 }
             }
