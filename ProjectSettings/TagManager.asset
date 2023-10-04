@@ -4,19 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-
-  - Door
-  - InteractionZone
-  - CinemachineTarget
-  - Test
-  - Keypad
-  - Door
-  - InteractionZone
-  - CinemachineTarget
   - Obstacle
-  - Monitor
-  - Question2Prefab
-
+  - Keypad
+  - scene
   layers:
   - Default
   - TransparentFX

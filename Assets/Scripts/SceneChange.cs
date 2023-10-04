@@ -7,8 +7,7 @@ using TMPro;
 
 public class SceneChange : MonoBehaviour
 {
-    [SerializeField] Canvas canvas = null;
-    [SerializeField] CanvasGroup background = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +21,9 @@ public class SceneChange : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        canvas.gameObject.SetActive(true);
-        SceneManager.LoadScene(2);
+       
+        //SceneManager.LoadScene("Scene_2F");
+        SceneManager.LoadScene(3);
         //StartCoroutine(nameof(AppearIntro),background);
     }
 

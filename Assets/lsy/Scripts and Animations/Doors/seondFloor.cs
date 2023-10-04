@@ -28,6 +28,11 @@ public class seondFloor : MonoBehaviour
                     {
                         StartCoroutine(opening());
 
+                        if(dist<5)
+                        {
+                            SceneManager.LoadScene("Scene_2F");
+                        }
+
                     }
                 }
                 else
