@@ -39,7 +39,6 @@ public class BossQuestionManager : MonoBehaviour
             isKeyPadOnce = true;
             if(!isSolvedKeyPadQuestion && isKeyPadOnce)
             {
-                Debug.Log("plus1key");
                 count += 1;
             }
             isSolvedKeyPadQuestion = true;
@@ -49,13 +48,11 @@ public class BossQuestionManager : MonoBehaviour
     void CheckSecondQuestion()
     {
         SecondQuestionGame secondQuestionGame = secondQuestionManager.GetComponent<SecondQuestionGame>();
-        Debug.Log(secondQuestionGame.isSuccess + "isSuccess값");
         if(secondQuestionGame.isSuccess)
         {
             isSecondOnce = true;
             if(!isSolvedSecondQuestion && isSecondOnce)
             {
-                Debug.Log("plus1second");
                 count += 1;
             }
             isSolvedSecondQuestion = true;

@@ -19,8 +19,7 @@ public class ShowSecondQuestion : MonoBehaviour
             if(Physics.Raycast(ray, out hit))
             {
                 string objectName = hit.collider.gameObject.name;
-                Debug.Log(objectName);
-
+                
                 if (hit.collider.CompareTag(interactableTag))
                 {
                     SecondQuestionGame secondQuestionGame = secondQuestionManager.GetComponent<SecondQuestionGame>();

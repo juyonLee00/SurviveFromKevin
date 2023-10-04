@@ -37,14 +37,10 @@ public class SecondQuestionGame : MonoBehaviour
             {
                 shuffling = true;
                 shuffleCount += 1;
-                Debug.Log("shuffleCount " + shuffleCount);
-
+                
                 if(shuffleCount >= 2)
                 {
-                    Debug.Log("shuffleCount, " + shuffleCount);
-                    Debug.Log(isSuccess + "IsSuccess");
                     isSuccess = true;
-                    Debug.Log(isSuccess + "iscorrect : ");
                     secondQuestionManager.SetActive(false);
                 }
 
@@ -62,7 +58,6 @@ public class SecondQuestionGame : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit))
                 {
-                        Debug.Log("clickrowlet");
                         for (int i = 0; i < pieces.Count; i++)
                         {
                             if (pieces[i] == hit.transform)
