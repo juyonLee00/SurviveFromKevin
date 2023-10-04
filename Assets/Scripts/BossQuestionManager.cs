@@ -21,8 +21,7 @@ public class BossQuestionManager : MonoBehaviour
 
     void GoToNextScene()
     {
-        Debug.Log("endScene");
-        //SceneManager.LoadScene("GameEndScene");
+        SceneManager.LoadScene("GameEnd");
     }
 
     void Update()
