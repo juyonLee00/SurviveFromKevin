@@ -33,8 +33,7 @@ public class GameIntroManager : MonoBehaviour
         k.color = new Color(k.color.r, k.color.g, k.color.b, 0);
         l.color = new Color(l.color.r, l.color.g, l.color.b, 0);
         m.color = new Color(m.color.r, m.color.g, m.color.b, 0);
-        o.color = new Color(o.color.r, o.color.g, o.color.b, 1);
-
+        o.color = new Color(o.color.r, o.color.g, o.color.b, 1); // background 1 see
 
         // appear
         // txtSurvive
