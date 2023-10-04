@@ -8,14 +8,15 @@ public class SecondQuestionGame : MonoBehaviour
     [SerializeField] private Transform piecePrefab;
     [SerializeField] public Camera mainCamera;
     [SerializeField] GameObject secondQuestionManager;
+    [SerializeField] GameObject gameBoard;
 
     private List<Transform> pieces;
     private int emptyLocation;
     private int size;
     private bool shuffling = false;
-    public bool isCorrect = true;
-    private int correctCount = 0;
+    public bool isSuccess;
     public bool isGameStarting = false;
+    public int shuffleCount = 0;
 
 
     private void Start()
@@ -23,6 +24,7 @@ public class SecondQuestionGame : MonoBehaviour
         pieces = new List<Transform>();
         size = 3;
         isGameStarting = true;
+        isSuccess = false;
         CreateGamePieces(0.01f);
         
     }
@@ -34,8 +36,20 @@ public class SecondQuestionGame : MonoBehaviour
             if (!shuffling && CheckCompletion())
             {
                 shuffling = true;
-                Shuffle();
-                shuffling = false;
+                shuffleCount += 1;
+                
+                if(shuffleCount >= 2)
+                {
+                    isSuccess = true;
+                    secondQuestionManager.SetActive(false);
+                }
+
+                else
+                {
+                    Shuffle();
+                    shuffling = false;
+                }
+
             }
 
             if (Input.GetMouseButtonDown(0))
@@ -44,7 +58,6 @@ public class SecondQuestionGame : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit))
                 {
-                        Debug.Log("clickrowlet");
                         for (int i = 0; i < pieces.Count; i++)
                         {
                             if (pieces[i] == hit.transform)
@@ -117,14 +130,6 @@ public class SecondQuestionGame : MonoBehaviour
                 return false;
             }
         }
-        correctCount += 1;
-
-        if(!isCorrect && correctCount >= 1)
-        {
-            isCorrect = true;
-            secondQuestionManager.SetActive(false);
-        }
-        isGameStarting = false;
 
         return true;
     }

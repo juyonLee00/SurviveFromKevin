@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DoorInteraction : MonoBehaviour
 {
-    public int interactionDistance = 50;
+    public int interactionDistance = 5;
 
     private const string interactableTag = "Door";
 
